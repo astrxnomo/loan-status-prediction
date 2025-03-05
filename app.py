@@ -25,7 +25,6 @@ job_years_encoder.fit(['0-1 year', '2-3 years', '4-6 years', '7-9 years', '10+ y
 term_encoder.fit(['Short Term', 'Long Term'])
 
 # Fit the scaler with appropriate data
-# Assuming you have a dataset named 'train_data' for fitting the scaler
 train_data = pd.read_csv('train_data_processed.csv')
 scaler.fit(train_data[['Current Loan Amount', 'Credit Score', 'Annual Income', 'Monthly Debt',
                        'Years of Credit History', 'Number of Open Accounts', 'Current Credit Balance',
@@ -90,20 +89,6 @@ profiles = {
         'Tax Liens': 5                              # Múltiples gravámenes fiscales
     }
 }
-
-# Añadir una función para calcular métricas financieras
-def calculate_financial_metrics(loan_amount, annual_income, monthly_debt):
-    debt_to_income = (monthly_debt * 12) / annual_income if annual_income > 0 else float('inf')
-    loan_to_income = loan_amount / annual_income if annual_income > 0 else float('inf')
-    monthly_loan_payment = loan_amount / 12  # Simplificado, podría ser más complejo
-    debt_burden = (monthly_debt + monthly_loan_payment) / (annual_income / 12)
-    
-    return {
-        "Debt to Income Ratio": debt_to_income,
-        "Loan to Income Ratio": loan_to_income,
-        "Monthly Loan Payment": monthly_loan_payment,
-        "Total Debt Burden": debt_burden
-    }
 
 # Modificar la interfaz principal
 st.title("🏦 Predictor de Estado de Préstamos")
