@@ -18,8 +18,8 @@ This project develops a **machine learning model** to predict whether a loan wil
 ## 🚀 How to Run Locally  
 1️⃣ **Clone the repository:**  
 ```bash
-git clone [REPO_URL]
-cd [PROJECT_NAME]
+git clone https://github.com/astrxnomo/loan-status-prediction.git
+cd loan-status-prediction
 ```
 
 2️⃣ Install dependencies:
